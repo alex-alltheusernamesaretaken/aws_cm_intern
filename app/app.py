@@ -3,7 +3,7 @@ import boto3
 
 DRY_RUN = False  # Sets the dry run flag on the aws calls
 GROUP_NAME = 'atlassian_id'  # the name of the security group we're updating
-VERBOSE = True
+VERBOSE = False
 
 
 def lambda_handler(event, context):

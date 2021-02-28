@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="[Remote] aws_cm_intern" type="aws.lambda" factoryName="Remote" nameIsGenerated="true">
+    <option name="credentialProviderId" value="profile:default" />
+    <option name="regionId" value="us-east-1" />
+    <option name="functionName" value="aws_cm_intern" />
+    <option name="input" value="{&#10;}" />
+    <option name="inputIsFile" value="false" />
+    <method v="2" />
+  </configuration>
+</component>
