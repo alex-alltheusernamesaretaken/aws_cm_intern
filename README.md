@@ -16,7 +16,7 @@ The goal of the assignment is to:
  * `aws-sam/build/function/` the script and necessary files for deployment as a lambda function
  * `readme.md` this documentation
 
-##Setting up AWS:
+###Setting up AWS:
 1. Make an AWS account, or login to the appropriate account if it already exists.
 2. Although the script can be run as the root user, it would be best to [create an IAM user with administrative privileges](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html "AWS Documentation on creating your first user") if an appropriate account does not yet exist.
 3. This script modifies security groups which requires administrative permissions. So we must create an IAM role with higher priviledges than the default 'lambda_basic_execution'
@@ -48,4 +48,29 @@ The goal of the assignment is to:
    
       ![Set the function handler](./img/create_function_4.png)
    
-##Running the Script
+###Running the Script
+The script should now be set up and ready to run as a Lambda function. There are many ways to do this, and during development it was done using the [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html "Link to AWS SAM documentation") through the AWS Toolkit. The easiest way after setting up AWS for the first time would be to run the script through the AWS web console, documentation for which follows.
+
+   Open the [AWS Lambda Service](https://us-east-2.console.aws.amazon.com/lambda/ "Link to AWS Lambda") to the Lambda function that was created earlier, and open the 'Test' menu.
+
+![Set the function handler](./img/run_script.png)
+
+Arguments to the script can be provided in the event.
+
+Key | Description
+----|------------
+VERBOSE|Provides additional log data when set to "true"
+DRY_RUN|Used to set the DryRun argument when accessing aws resources
+GROUP_NAME|Used to specify the name of the security group being updated
+IPRANGE_URL|Can be used to specify a url to get the iprange data from
+If not provided by the event, default values will be used, additional documentation for this can be found in `app.py`
+
+After invoking the script, we can verify that the security group was updated by checking the logs:
+
+![Set the function handler](./img/run_script_2.png)
+
+We can also verify success of the script by checking the [Security Groups menu in the EC2 Service](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#SecurityGroups: "Link to security groups page"), it should contain the updated security group. The security group will have been automatically created if it did not exist before running the script.
+
+![Set the function handler](./img/run_script_3.png)
+
+Another way to run the script would be through the [AWS CLI](https://aws.amazon.com/cli/ "Link to AWS CLI"), by directly invoking the lambda function. After [configuring our credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html "How to configure credentials for AWS CLI"), the script could be run with the command: `aws lambda invoke --function-name aws_cm_intern out --log-type Tail`
