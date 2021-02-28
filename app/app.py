@@ -1,7 +1,7 @@
 import requests
 import boto3
 
-DRY_RUN_DEFAULT = False  # Sets the default dry run flag on the aws calls
+DRY_RUN_DEFAULT = False  # Sets the default DryRun argument, setting this to true avoids making changes to aws resources
 GROUP_NAME_DEFAULT = 'atlassian_id'  # the default name of the security group we're updating
 VERBOSE_DEFAULT = False  # default setting for verbosity
 IPRANGE_URL_DEFAULT = "https://ip-ranges.atlassian.com/"  # default url for the ip ranges
@@ -26,8 +26,8 @@ def lambda_handler(event, context):
     if 'items' not in data:  # make sure the json is formatted as we expect it
         return {"message": "Malformed JSON, aborting"}
 
+    # get the cidr ips out of the data we just got
     address = []
-
     for v in data['items']:
         if 'cidr' not in v:  # if the cidr ip is somehow missing, just skip this one
             continue
@@ -36,6 +36,7 @@ def lambda_handler(event, context):
 
     ec2 = boto3.client('ec2')
 
+    # first try to find the security group, so that we can update it
     try:
         response = ec2.describe_security_groups(
             Filters=[dict(Name="group-name", Values=[group_name])],
