@@ -13,7 +13,7 @@ The goal of the assignment is to:
 
 #### Important files: ####
  * `app/app.py` the script
- * `aws-sam/build/function/` the script and necessary files for deployment as a lambda function
+ * `.aws-sam/build/function/` the script and necessary files for deployment as a lambda function
  * `readme.md` this documentation
 
 ### Setting up AWS: ###
@@ -41,7 +41,7 @@ The goal of the assignment is to:
    2. Using 'Author from scratch', name the function, select Python 3.8 as the runtime, and select the execution role that was created earlier.
    
       ![Create function details](./img/create_function_2.png)
-   3. Upload the built version of the script from `aws-sam/build/function/`, the archive `aws_cm_intern_function.zip` has been provided for convenience.
+   3. Upload the built version of the script from `.aws-sam/build/function/`, the archive `aws_cm_intern_function.zip` has been provided for convenience.
    
       ![Upload the script](./img/create_function_3.png)
    4. Make sure the function handler has been set correctly for the lambda function. In this case it should be set to `app.lambda_handler`
