@@ -1,4 +1,4 @@
-#Alex' CM Intern Assignment
+#Alex' CM Intern Assignment #
 
 This project is part of the devops intern interview assignment. It consists of a script meant to be deployed as an aws lambda function, and this documentation.
 
@@ -11,12 +11,12 @@ The goal of the assignment is to:
  * Deploy the script on aws lambda to ensure functionality
  * Provide documentation for the script, setting up AWS, and the process of using the script (this)
 
-####Important files:
+####Important files: ####
  * `app/app.py` the script
  * `aws-sam/build/function/` the script and necessary files for deployment as a lambda function
  * `readme.md` this documentation
 
-###Setting up AWS:
+###Setting up AWS: ###
 1. Make an AWS account, or login to the appropriate account if it already exists.
 2. Although the script can be run as the root user, it would be best to [create an IAM user with administrative privileges](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html "AWS Documentation on creating your first user") if an appropriate account does not yet exist.
 3. This script modifies security groups which requires administrative permissions. So we must create an IAM role with higher priviledges than the default 'lambda_basic_execution'
@@ -48,7 +48,7 @@ The goal of the assignment is to:
    
       ![Set the function handler](./img/create_function_4.png)
    
-###Running the Script
+###Running the Script ###
 The script should now be set up and ready to run as a Lambda function. There are many ways to do this, and during development it was done using the [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html "Link to AWS SAM documentation") through the AWS Toolkit. The easiest way after setting up AWS for the first time would be to run the script through the AWS web console, documentation for which follows.
 
    Open the [AWS Lambda Service](https://us-east-2.console.aws.amazon.com/lambda/ "Link to AWS Lambda") to the Lambda function that was created earlier, and open the 'Test' menu.
@@ -75,7 +75,7 @@ We can also verify success of the script by checking the [Security Groups menu i
 
 Another way to run the script would be through the [AWS CLI](https://aws.amazon.com/cli/ "Link to AWS CLI"), by directly invoking the lambda function. After [configuring our credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html "How to configure credentials for AWS CLI"), the script could be run with the command: `aws lambda invoke --function-name aws_cm_intern out --log-type Tail`
 
-##Conclusion
+##Conclusion ##
 
 The script provided fulfils all the goals set out by the assignment. There are however further improvements that could be made, particularly in the AWS setup and process of running the script.
 
