@@ -4,7 +4,7 @@ import boto3
 DRY_RUN_DEFAULT = False  # Sets the default dry run flag on the aws calls
 GROUP_NAME_DEFAULT = 'atlassian_id'  # the default name of the security group we're updating
 VERBOSE_DEFAULT = False  # default setting for verbosity
-IPRANGE_URL_DEFAULT = "https://ip-ranges.atlassian.com/"
+IPRANGE_URL_DEFAULT = "https://ip-ranges.atlassian.com/"  # default url for the ip ranges
 
 
 def lambda_handler(event, context):

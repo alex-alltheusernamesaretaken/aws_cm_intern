@@ -20,7 +20,7 @@ The goal of the assignment is to:
 1. Make an AWS account, or login to the appropriate account if it already exists.
 2. Although the script can be run as the root user, it would be best to [create an IAM user with administrative privileges](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html "AWS Documentation on creating your first user") if an appropriate account does not yet exist.
 3. This script modifies security groups which requires administrative permissions. So we must create an IAM role with higher priviledges than the default 'lambda_basic_execution'
-   1. Open AWS console, navigate to IAM Service, and enter the [Roles menu]("https://console.aws.amazon.com/iam/home?region=us-east-2#/roles" "Link to the IAM Roles menu"
+   1. Open AWS console, navigate to IAM Service, and enter the [Roles menu](https://console.aws.amazon.com/iam/home?region=us-east-2#/roles "Link to the IAM Roles menu")
    2. Create new role
    
       ![Create role](./img/create_role.png)
