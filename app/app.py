@@ -81,7 +81,7 @@ def lambda_handler(event, context):
     # make new security group ip permissions based on prior ip range request
     permissions = []
     for v in address:
-        ippermission = {
+        ippermission = {  # We'll just open every port on inbound tcp
             "FromPort": 0,
             "IpProtocol": "tcp",
             "ToPort": 65535,

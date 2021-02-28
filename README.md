@@ -74,3 +74,9 @@ We can also verify success of the script by checking the [Security Groups menu i
 ![Set the function handler](./img/run_script_3.png)
 
 Another way to run the script would be through the [AWS CLI](https://aws.amazon.com/cli/ "Link to AWS CLI"), by directly invoking the lambda function. After [configuring our credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html "How to configure credentials for AWS CLI"), the script could be run with the command: `aws lambda invoke --function-name aws_cm_intern out --log-type Tail`
+
+##Conclusion
+
+The script provided fulfils all the goals set out by the assignment. There are however further improvements that could be made, particularly in the AWS setup and process of running the script.
+
+If the functionality of the script was required more often than just the one off update of the security group, a better solution than manually invoking the lambda function may be to deploy a full application, using the API Gateway to run the script when necessary.
